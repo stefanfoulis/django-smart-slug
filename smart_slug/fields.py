@@ -36,7 +36,7 @@ class SmartSlugField(SlugField):
         base_qs = model._default_manager.filter(**query)
 
         if self.split_on_words and len(potential_slug) > self.max_length:
-            pos = potential_slug[:self.max_length].rfind('-')
+            pos = potential_slug[:self.max_length + 1].rfind('-')
             if pos > 0:
                 potential_slug = potential_slug[:pos]
 

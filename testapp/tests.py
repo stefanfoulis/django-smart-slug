@@ -70,17 +70,17 @@ class SimpleTest(TestCase):
 
         self.assertEqual(c1.slug, 'complex')
 
-        c1.title = "complexexample test"
+        c1.title = "complex as hell"
         c1.save()
-        self.assertEqual(c1.slug, 'complexexa')
+        self.assertEqual(c1.slug, 'complex-as')
 
-        c2 = Complex(title='complexexample test', pub_date=dt)
+        c2 = Complex(title='complex as hell', pub_date=dt)
         c2.save()
-        self.assertEqual(c2.slug, 'complexex_')
+        self.assertEqual(c2.slug, 'complex-a_')
 
-        c3 = Complex(title='complexexample test', pub_date=dt)
+        c3 = Complex(title='complex as hell', pub_date=dt)
         c3.save()
-        self.assertEqual(c3.slug, 'complexe__')
+        self.assertEqual(c3.slug, 'complex-__')
 
     def test_numeral_handling(self):
         un1 = UnderscoresNumerals(slug_underscores='test', slug_numerals='test')
