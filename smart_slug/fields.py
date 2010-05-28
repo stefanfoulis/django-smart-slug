@@ -12,6 +12,7 @@ class SmartSlugField(SlugField):
         self.split_on_words = kwargs.pop('split_on_words', False)
         self.underscores = kwargs.pop('underscores', True)
         kwargs['unique'] = self.date_field is None
+        kwargs['editable'] = self.source_field is None
         super(SmartSlugField, self).__init__(*args, **kwargs)
 
     def _generate_date_query(self, dt):
