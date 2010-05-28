@@ -100,3 +100,19 @@ class SimpleTest(TestCase):
 
         self.assertEqual(un3.slug_underscores, 'test__')
         self.assertEqual(un3.slug_numerals, 'test-2')
+
+    def test_numeral_overflow(self):
+        un_long = UnderscoresNumerals(slug_underscores='long-example', slug_numerals='long-example')
+        un_long.save()
+        self.assertEqual(un_long.slug_underscores, 'long-examp')
+        self.assertEqual(un_long.slug_numerals, 'long-examp')
+
+        un_long2 = UnderscoresNumerals(slug_underscores='long-example', slug_numerals='long-example')
+        un_long2.save()
+        self.assertEqual(un_long2.slug_underscores, 'long-exam_')
+        self.assertEqual(un_long2.slug_numerals, 'long-exa-1')
+
+        un_long3 = UnderscoresNumerals(slug_underscores='long-example', slug_numerals='long-example')
+        un_long3.save()
+        self.assertEqual(un_long3.slug_underscores, 'long-exa__')
+        self.assertEqual(un_long3.slug_numerals, 'long-exa-2')
