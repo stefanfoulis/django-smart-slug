@@ -2,5 +2,5 @@ DATABASE_ENGINE = 'sqlite3'
 
 INSTALLED_APPS = [
     'django.contrib.contenttypes',
-    'testapp',
+    'smart_slug.tests',
 ]

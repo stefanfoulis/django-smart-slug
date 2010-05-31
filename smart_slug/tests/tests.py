@@ -1,7 +1,7 @@
 import datetime
 from django.test import TestCase
 
-from testapp.models import Simple, Complex, UnderscoresNumerals
+from smart_slug.tests.models import Simple, Complex, UnderscoresNumerals
 
 class SimpleTest(TestCase):
     def test_simple(self):
